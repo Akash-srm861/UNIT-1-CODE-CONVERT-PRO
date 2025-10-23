@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧮 "CodeConvert Pro"</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Added main navigation menu for comprehensive learning platform -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🧮 "CodeConvert Pro"</h1>
+                <p>Interactive Learning Platform</p>
+            </div>
+            <div class="user-actions" style="margin-left: auto; margin-right: 20px; display: flex; gap: 15px; align-items: center;">
+                <div id="user-info" style="display: none; color: white; font-size: 14px;">
+                    <span id="user-name"></span>
+                </div>
+                <a href="login.html" id="login-link" class="nav-btn" style="background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 8px; color: white; text-decoration: none;">Login</a>
+                <button id="logout-btn" style="display: none; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 8px; color: white; border: none; cursor: pointer;">Logout</button>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                                <div class="menu-category">
+                    <h3>🔢 Number Systems</h3>
+                    <div class="nav-item" data-module="binary-conversions">📊 Binary Conversions</div>
+                    <div class="nav-item" data-module="decimal-conversions">🔟 Decimal Conversions</div>
+                    <div class="nav-item" data-module="octal-conversions">🔍 Octal Conversions</div>
+                    <div class="nav-item" data-module="hex-conversions">🅰️ Hexadecimal Conversions</div>
+                </div>
+                <div class="menu-category">
+                    <h3>⚡ Binary Operations</h3>
+                    <div class="nav-item" data-module="twos-complement">➗ 2's Complement Subtraction</div>
+                    <div class="nav-item" data-module="ones-complement">🔄 1's Complement</div>
+                    <div class="nav-item" data-module="binary-arithmetic">➕ Binary Arithmetic</div>
+                    <div class="nav-item" data-module="bcd-arithmetic">🔢 BCD Arithmetic</div>
+                </div>
+                <div class="menu-category">
+                    <h3>🔐 Code Systems</h3>
+                    <div class="nav-item" data-module="bcd-conversion">💻 BCD Conversion</div>
+                    <div class="nav-item" data-module="gray-code">⚡ Gray Code</div>
+                    <div class="nav-item" data-module="ascii-code">📝 ASCII Code</div>
+                    <div class="nav-item" data-module="parity-bits">🛡️ Parity Bits</div>
+                </div>
+                <div class="menu-category">
+                    <h3>🎯 Quiz & Assessment</h3>
+                    <div class="nav-item" data-module="quiz-center">📚 Quiz Center</div>
+                    <div class="nav-item" data-module="user-dashboard">📊 Dashboard</div>
+                    <div class="nav-item" data-module="leaderboard">🏆 Leaderboard</div>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Added main content container that will dynamically load modules -->
+    <main class="main-content" id="main-content">
+        <!-- Home/Welcome Screen -->
+        <section class="welcome-screen" id="welcome-screen">
+            <div class="welcome-container">
+                <!-- Digital Mentor Character -->
+                <div class="digital-mentor" id="digital-mentor">
+                    <div class="mentor-character">
+                        <div class="mentor-face">
+                            <div class="mentor-eyes">
+                                <div class="eye left-eye"></div>
+                                <div class="eye right-eye"></div>
+                            </div>
+                            <div class="mentor-smile"></div>
+                        </div>
+                        <div class="mentor-hand wave-hand">👋</div>
+                        <div class="mentor-body">
+                            <div class="circuit-pattern"></div>
+                        </div>
+                    </div>
+                    <div class="mentor-speech-bubble">
+                        <p id="mentor-message">Welcome! I'm here to guide you through digital electronics! 🎓</p>
+                    </div>
+                </div>
+                
+                <!-- Floating Circuit Particles -->
+                <div class="circuit-particles" id="circuit-particles"></div>
+                
+                <div class="welcome-header">
+                    <h1>🎓 Welcome to Digital Electronics Tamil Techies Hub</h1>
+                    <p>Master digital electronics and number systems with interactive lessons and step-by-step tutorials</p>
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-card number-conversion-card">
+                        <div class="feature-icon">🔢</div>
+                        <div class="conversion-demo" id="conversion-demo">
+                            <div class="binary-digits">1101</div>
+                            <div class="conversion-arrow">→</div>
+                            <div class="decimal-result">13</div>
+                            <div class="sparkle-effects"></div>
+                        </div>
+                        <h3>Number System Conversions</h3>
+                        <p>Learn to convert between Binary, Decimal, Octal, and Hexadecimal number systems</p>
+                        <button class="feature-btn" data-module="binary-conversions">Start Learning</button>
+                    </div>
+                    
+                    <div class="feature-card code-systems-card">
+                        <div class="feature-icon">💻</div>
+                        <div class="code-characters">
+                            <div class="ascii-char dancing">A</div>
+                            <div class="bcd-group marching">1010</div>
+                            <div class="gray-code flowing">011</div>
+                        </div>
+                        <h3>Code Systems</h3>
+                        <p>Explore BCD, Gray Code, ASCII, and Parity Bit systems with interactive examples</p>
+                        <button class="feature-btn" data-module="bcd-conversion">Explore Codes</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">➕</div>
+                        <h3>Arithmetic Operations</h3>
+                        <p>Master binary arithmetic, BCD operations, and complement arithmetic</p>
+                        <button class="feature-btn" data-module="binary-arithmetic">Practice Math</button>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Interactive Learning</h3>
+                        <p>Step-by-step animations, instant feedback, and comprehensive explanations</p>
+                        <button class="feature-btn" data-module="twos-complement">Try 2's Complement</button>
+                    </div>
+                </div>
+                
+                <div class="quick-start">
+                    <div class="guide-pointer" id="guide-pointer">
+                        <div class="pointing-hand">👉</div>
+                        <div class="gentle-spotlight"></div>
+                    </div>
+                    <h3>🚀 Quick Start</h3>
+                    <p>New to digital electronics? Start with our most popular tutorial:</p>
+                    <button class="primary-btn large-btn guided-button" data-module="twos-complement">
+                        🧮 2's Complement Subtraction Tutorial
+                    </button>
+                </div>
+
+                <!-- Demo section to enable scrolling -->
+                <div class="demo-section">
+                    <h2>🔍 Explore Learning Modules</h2>
+                    <div class="learning-preview">
+                        <div class="preview-card">
+                            <h4>📊 Binary Number System</h4>
+                            <p>Learn how computers understand numbers using only 0s and 1s</p>
+                            <div class="preview-animation">
+                                <span class="binary-demo">1010</span>
+                                <span class="arrow">→</span>
+                                <span class="decimal-demo">10</span>
+                            </div>
+                        </div>
+                        <div class="preview-card">
+                            <h4>🔄 BCD Encoding</h4>
+                            <p>Discover how decimal digits are encoded in binary format</p>
+                            <div class="preview-animation">
+                                <span class="bcd-demo">0101</span>
+                                <span class="arrow">→</span>
+                                <span class="digit-demo">5</span>
+                            </div>
+                        </div>
+                        <div class="preview-card">
+                            <h4>➕ Arithmetic Operations</h4>
+                            <p>Master binary addition, subtraction, and complement operations</p>
+                            <div class="preview-animation">
+                                <span class="calc-demo">1011 + 0110</span>
+                                <span class="equals">=</span>
+                                <span class="result-demo">10001</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module Container - All learning modules will be loaded here -->
+        <div class="module-container" id="module-container" style="display: none;">
+            <div class="module-header">
+                <button class="back-btn" id="back-btn">← Back to Menu</button>
+                <h2 class="module-title" id="module-title">Learning Module</h2>
+                <div class="module-progress" id="module-progress"></div>
+            </div>
+            <div class="module-content" id="module-content">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Moved original 2's complement content to be loaded dynamically -->
+    <template id="twos-complement-template">
+        <header class="main-header">
+            <h1>🧮 2's Complement Subtraction Made Easy! 🧮</h1>
+            <p>Learn binary subtraction step-by-step with interactive examples</p>
+        </header>
+
+        <div class="container">
+            <!-- Input Section -->
+            <section class="input-section card">
+                <h2>📝 Enter Your Binary Numbers</h2>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="minuend">Minuend (A):</label>
+                        <input type="text" id="minuend" placeholder="e.g., 1101" maxlength="8">
+                        <span class="binary-hint">Binary digits only (0-8 bits)</span>
+                        <div class="input-feedback" id="minuend-feedback">
+                            <span class="feedback-icon">💡</span>
+                            <span class="feedback-text">Enter binary number</span>
+                        </div>
+                    </div>
+                    <div class="subtraction-symbol">➖</div>
+                    <div class="input-field">
+                        <label for="subtrahend">Subtrahend (B):</label>
+                        <input type="text" id="subtrahend" placeholder="e.g., 0011" maxlength="8">
+                        <span class="binary-hint">Binary digits only (0-8 bits)</span>
+                        <div class="input-feedback" id="subtrahend-feedback">
+                            <span class="feedback-icon">💡</span>
+                            <span class="feedback-text">Enter binary number</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id="calculate-btn" class="primary-btn">🚀 Calculate</button>
+                    <button id="reset-btn" class="secondary-btn">🔄 Reset</button>
+                    <button id="example-btn" class="example-btn">🎯 Try Example</button>
+                </div>
+                <div id="error-message" class="error-message"></div>
+            </section>
+
+            <!-- Steps Section -->
+            <section class="steps-section">
+                <h2>📚 Step-by-Step Process</h2>
+                
+                <!-- Step 1: Original Problem -->
+                <div class="step-card" id="step-1">
+                    <div class="step-header">
+                        <span class="step-number">1️⃣</span>
+                        <h3>Original Problem</h3>
+                        <span class="step-status">⏳</span>
+                    </div>
+                    <div class="step-content">
+                        <p>We want to calculate: <span id="original-problem">A - B</span></p>
+                        <div class="binary-display">
+                            <div class="binary-row">
+                                <span class="label">A =</span>
+                                <span id="display-minuend" class="binary-number">----</span>
+                                <span class="decimal-display" id="minuend-decimal"></span>
+                            </div>
+                            <div class="binary-row">
+                                <span class="label">B =</span>
+                                <span id="display-subtrahend" class="binary-number">----</span>
+                                <span class="decimal-display" id="subtrahend-decimal"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Find 2's Complement -->
+                <div class="step-card" id="step-2">
+                    <div class="step-header">
+                        <span class="step-number">2️⃣</span>
+                        <h3>Find 2's Complement of B</h3>
+                        <span class="step-status">⏳</span>
+                    </div>
+                    <div class="step-content">
+                        <p>💡 <strong>2's Complement = 1's Complement + 1</strong></p>
+                        <div class="binary-display">
+                            <div class="binary-row">
+                                <span class="label">B =</span>
+                                <span id="step2-original" class="binary-number">----</span>
+                            </div>
+                            <div class="binary-row animation-row">
+                                <span class="label">Flip bits:</span>
+                                <div id="bit-flip-animation" class="bit-flip-container">----</div>
+                                <span class="explanation">(click bits to see flipping!)</span>
+                            </div>
+                            <div class="binary-row">
+                                <span class="label">1's Comp =</span>
+                                <span id="step2-ones-comp" class="binary-number highlight-invert">----</span>
+                            </div>
+                            <div class="binary-row">
+                                <span class="label">+ 1 =</span>
+                                <span id="step2-add-one" class="binary-number">0001</span>
+                            </div>
+                            <div class="addition-animation" id="addition-animation">
+                                <div class="addition-step">Adding 1 to get 2's complement...</div>
+                            </div>
+                            <div class="binary-row result-row">
+                                <span class="label">2's Comp =</span>
+                                <span id="step2-twos-comp" class="binary-number highlight-result">----</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Addition -->
+                <div class="step-card" id="step-3">
+                    <div class="step-header">
+                        <span class="step-number">3️⃣</span>
+                        <h3>Add A + 2's Complement of B</h3>
+                        <span class="step-status">⏳</span>
+                    </div>
+                    <div class="step-content">
+                        <p>Now we add instead of subtract!</p>
+                        <div class="binary-display">
+                            <div class="binary-row">
+                                <span class="label">A =</span>
+                                <span id="step3-minuend" class="binary-number">----</span>
+                            </div>
+                            <div class="binary-row">
+                                <span class="label">+ 2's Comp =</span>
+                                <span id="step3-twos-comp" class="binary-number">----</span>
+                            </div>
+                            <div class="carry-animation" id="carry-animation">
+                                <div class="carry-row">
+                                    <span class="label">Carry =</span>
+                                    <div id="step3-carry" class="carry-display animated-carry">----</div>
+                                </div>
+                            </div>
+                            <div class="binary-row result-row">
+                                <span class="label">Result =</span>
+                                <span id="step3-result" class="binary-number highlight-result">----</span>
+                            </div>
+                            <div class="addition-steps" id="addition-steps">
+                                <div class="step-by-step-title">🔍 Step-by-step addition:</div>
+                                <div class="addition-columns" id="addition-columns"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Final Result -->
+                <div class="step-card" id="step-4">
+                    <div class="step-header">
+                        <span class="step-number">4️⃣</span>
+                        <h3>Final Answer</h3>
+                        <span class="step-status">⏳</span>
+                    </div>
+                    <div class="step-content">
+                        <div class="final-result">
+                            <div class="celebration-container" id="celebration-container"></div>
+                            <p><strong>A - B = <span id="final-answer" class="highlight-result">----</span></strong></p>
+                            <div class="result-explanation">
+                                <p id="result-explanation">Click calculate to see the result!</p>
+                            </div>
+                            <div class="result-verification" id="result-verification">
+                                <button class="verify-btn" id="verify-btn">🔍 Verify Result</button>
+                                <div class="verification-details" id="verification-details"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="navigation-section">
+                <div class="nav-buttons">
+                    <button id="prev-step" class="nav-btn" disabled>⬅️ Previous</button>
+                    <button id="next-step" class="nav-btn" disabled>Next ➡️</button>
+                    <button id="auto-play" class="nav-btn">▶️ Auto Play</button>
+                    <div class="speed-control">
+                        <label for="animation-speed">Animation Speed:</label>
+                        <select id="animation-speed" class="speed-select">
+                            <option value="slow">🐌 Slow</option>
+                            <option value="normal" selected>🚶 Normal</option>
+                            <option value="fast">🏃 Fast</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress" class="progress-fill"></div>
+                    <div class="progress-indicators">
+                        <span class="progress-dot" data-step="1">1</span>
+                        <span class="progress-dot" data-step="2">2</span>
+                        <span class="progress-dot" data-step="3">3</span>
+                        <span class="progress-dot" data-step="4">4</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="main-footer">
+            <div class="tips-section">
+                <h3>💡 Quick Tips</h3>
+                <ul>
+                    <li><strong>2's Complement:</strong> Flip all bits, then add 1</li>
+                    <li><strong>Subtraction:</strong> A - B = A + (2's complement of B)</li>
+                    <li><strong>Overflow:</strong> If result exceeds bit width, carry is discarded</li>
+                    <li><strong>Negative Results:</strong> Result in 2's complement form if MSB = 1</li>
+                </ul>
+            </div>
+            <p>Made with ❤️ for learning binary arithmetic</p>
+        </footer>
+    </template>
+
+    <!-- Main quiz application script -->
+    <script src="script.js"></script>
+    
+    <!-- Backend Authentication -->
+    <script>
+        // Authentication Guard - Redirect to login if not authenticated
+        function checkAuthAndRedirect() {
+            const authenticated = localStorage.getItem('authenticated') || sessionStorage.getItem('authenticated');
+            const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+            
+            if (!authenticated || !token) {
+                console.log('Not authenticated. Redirecting to login...');
+                window.location.href = 'login.html';
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // Check authentication status and display user info
+        function checkAuth() {
+            const authenticated = localStorage.getItem('authenticated') || sessionStorage.getItem('authenticated');
+            const userJson = localStorage.getItem('user') || sessionStorage.getItem('user');
+            
+            const userInfo = document.getElementById('user-info');
+            const userName = document.getElementById('user-name');
+            const loginLink = document.getElementById('login-link');
+            const logoutBtn = document.getElementById('logout-btn');
+            
+            if (authenticated && userJson && userInfo && userName && loginLink && logoutBtn) {
+                try {
+                    // User is logged in
+                    const user = JSON.parse(userJson);
+                    const name = user.fullName || user.email.split('@')[0];
+                    userName.textContent = `👤 ${name}`;
+                    userInfo.style.display = 'block';
+                    loginLink.style.display = 'none';
+                    logoutBtn.style.display = 'block';
+                } catch (error) {
+                    console.error('Error parsing user data:', error);
+                    // Clear invalid data
+                    localStorage.removeItem('user');
+                    sessionStorage.removeItem('user');
+                }
+            }
+        }
+        
+        // Initialize and check authentication
+        document.addEventListener('DOMContentLoaded', () => {
+            // First check if user is authenticated
+            const isAuthenticated = checkAuthAndRedirect();
+            
+            if (!isAuthenticated) {
+                return; // Stop execution if not authenticated
+            }
+            
+            // User is authenticated, proceed with normal initialization
+            checkAuth();
+            
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    // Clear all authentication data
+                    localStorage.removeItem('user');
+                    sessionStorage.removeItem('user');
+                    localStorage.removeItem('authenticated');
+                    sessionStorage.removeItem('authenticated');
+                    localStorage.removeItem('authToken');
+                    sessionStorage.removeItem('authToken');
+                    
+                    // Show success message
+                    const message = document.createElement('div');
+                    message.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #4caf50; color: white; padding: 15px 25px; border-radius: 10px; z-index: 10000; box-shadow: 0 4px 12px rgba(0,0,0,0.3);';
+                    message.textContent = 'Logged out successfully! Redirecting...';
+                    document.body.appendChild(message);
+                    
+                    // Redirect to login page after 1 second
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 1000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

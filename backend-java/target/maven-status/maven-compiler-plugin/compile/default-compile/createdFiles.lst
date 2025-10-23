@@ -1,0 +1,14 @@
+com\digitalelectronics\quiz\repository\QuizAttemptRepository.class
+com\digitalelectronics\quiz\repository\QuizRepository.class
+com\digitalelectronics\quiz\service\ProfileService.class
+com\digitalelectronics\quiz\service\AuthService.class
+com\digitalelectronics\quiz\service\QuizService.class
+com\digitalelectronics\quiz\model\User.class
+com\digitalelectronics\quiz\service\QuizAttemptService.class
+com\digitalelectronics\quiz\repository\ProfileRepository.class
+com\digitalelectronics\quiz\model\Quiz.class
+com\digitalelectronics\quiz\model\QuizAttempt.class
+com\digitalelectronics\quiz\QuizApplication.class
+com\digitalelectronics\quiz\model\Question.class
+com\digitalelectronics\quiz\repository\UserRepository.class
+com\digitalelectronics\quiz\repository\QuestionRepository.class
